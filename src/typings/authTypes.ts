@@ -1,3 +1,9 @@
+export type UserAuth = {
+  userName: string;
+  password: string;
+  apiEndpoint: string;
+};
+
 export type TokenObject = {
   token_type: string;
   access_token: string;
