@@ -5,10 +5,10 @@ interface IProps {
 }
 
 const DefaultLayout = ({ children }: IProps): JSX.Element => (
-  <>
+  <div className="default-layout">
     <PageNavigation />
-    {children}
-  </>
+    <div className="page-content">{children}</div>
+  </div>
 );
 
 export default DefaultLayout;
