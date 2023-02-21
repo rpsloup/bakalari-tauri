@@ -1,0 +1,15 @@
+.page-navigation {
+  height: 100%;
+  background: #000;
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-box {
+    width: 60px;
+    height: 60px;
+    background: #333;
+  }
+}
