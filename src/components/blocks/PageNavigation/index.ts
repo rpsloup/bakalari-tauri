@@ -1,3 +1,3 @@
-import PageNavigation from './PageNavigation,component';
+import PageNavigation from './PageNavigation.component';
 
 export default PageNavigation;
