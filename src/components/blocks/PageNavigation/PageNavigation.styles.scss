@@ -1,6 +1,6 @@
 .page-navigation {
   height: 100%;
-  background: #000;
+  background-color: #000;
 
   .nav-items {
     display: flex;
@@ -11,9 +11,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
-    background: #333;
+    width: 5.4rem;
+    height: 5.4rem;
+    background-color: #222;
     color: #fff;
+    transition: background-color 0.2s;
+
+    &.active {
+      border-left: 0.3rem solid #ae45d8;
+    }
+
+    &:hover {
+      background-color: #333;
+    }
   }
 }

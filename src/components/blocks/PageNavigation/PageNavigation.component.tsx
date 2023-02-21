@@ -9,7 +9,7 @@ const PageNavigation = (): JSX.Element => (
     <ul className="nav-items">
       <li className="nav-item">
         <Link to="/">
-          <div className="item-box">
+          <div className="item-box active">
             <Icon name="house" type="fas" />
           </div>
         </Link>
