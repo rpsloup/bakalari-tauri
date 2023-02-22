@@ -30,7 +30,7 @@ const PageNavigation = (): JSX.Element => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/">
+          <Link to="/timetable">
             <div className="item-box">
               <Icon name="calendar-days" type="fas" />
               <span className="box-label">Rozvrh</span>
