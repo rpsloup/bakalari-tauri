@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Loader from '../components/elements/Loader';
+
 import { useAuth } from '../hooks/authHooks';
 
 import type { FormEvent, ChangeEvent } from 'react';
@@ -11,7 +13,7 @@ const LoginPage = (): JSX.Element => {
   const [password, setPassword] = useState<string>('');
 
   const navigate = useNavigate();
-  const { handleLogin } = useAuth();
+  const { tokenLoading, handleLogin } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ const LoginPage = (): JSX.Element => {
     <>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="endpoint">Endpoint</label>
+        <label htmlFor="endpoyčint">Endpoint</label>
         <br />
         <input
           type="text"
@@ -60,7 +62,7 @@ const LoginPage = (): JSX.Element => {
         />
         <br />
         <br />
-        <input type="submit" value="Sign in" />
+        {tokenLoading ? <Loader /> : <input type="submit" value="Sign in" />}
       </form>
     </>
   );
