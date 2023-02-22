@@ -22,7 +22,7 @@ const PageNavigation = (): JSX.Element => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/">
+          <Link to="/marks">
             <div className="item-box">
               <Icon name="book" type="fas" />
               <span className="box-label">Známky</span>
