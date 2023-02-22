@@ -13,7 +13,7 @@ const MarksPage = (): JSX.Element => {
     <DefaultLayout>
       <h1>Marks</h1>
       {data
-        ? (data as any).Subjects.map((entry: any) => (
+        ? (data as any).Subjects?.map((entry: any) => (
             <>
               <p>{entry.Subject.Name}</p>
               <p>{entry.AverageText}</p>
