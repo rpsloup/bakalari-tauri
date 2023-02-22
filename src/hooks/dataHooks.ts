@@ -17,7 +17,7 @@ export const useEndpoint = (
         setLoading(false);
         return;
       }
-      const res = await fetch(`${access.apiEndpoint}/api/3/${endpoint}`, {
+      const res = await fetch(`${access.apiEndpoint}/api/3${endpoint}`, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           Authorization: `${access.tokenData.token_type} ${access.tokenData.access_token}`,

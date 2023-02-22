@@ -1,6 +1,6 @@
 import type { Hour, Day, Teacher, Subject, Room } from './timetableTypes';
 
-export type APIEndpoint = string;
+export type APIEndpoint = '/marks' | '/timetable/permanent';
 
 export type TimetableResponse = {
   Hours: Hour[];
