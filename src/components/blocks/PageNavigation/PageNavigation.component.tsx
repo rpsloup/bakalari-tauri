@@ -17,34 +17,39 @@ const PageNavigation = (): JSX.Element => {
           <Link to="/">
             <div className="item-box active">
               <Icon name="house" type="fas" />
+              <span className="box-label">Domů</span>
             </div>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/">
             <div className="item-box">
-              <Icon name="house" type="fas" />
+              <Icon name="book" type="fas" />
+              <span className="box-label">Známky</span>
             </div>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/">
             <div className="item-box">
-              <Icon name="house" type="fas" />
+              <Icon name="calendar-days" type="fas" />
+              <span className="box-label">Rozvrh</span>
             </div>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/">
             <div className="item-box">
-              <Icon name="house" type="fas" />
+              <Icon name="person-circle-question" type="fas" />
+              <span className="box-label">Absence</span>
             </div>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/">
             <div className="item-box">
-              <Icon name="house" type="fas" />
+              <Icon name="calculator" type="fas" />
+              <span className="box-label">Předvídač</span>
             </div>
           </Link>
         </li>
