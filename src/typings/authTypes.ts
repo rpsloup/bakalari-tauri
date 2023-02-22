@@ -10,3 +10,8 @@ export type TokenObject = {
   refresh_token: string;
   expires_in: number;
 };
+
+export type AccessObject = {
+  apiEndpoint: UserAuth['apiEndpoint'];
+  tokenData: TokenObject;
+};

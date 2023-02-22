@@ -13,18 +13,17 @@ const LoginPage = (): JSX.Element => {
   const [password, setPassword] = useState<string>('');
 
   const navigate = useNavigate();
-  const { tokenLoading, handleLogin } = useAuth();
+  const { authLoading, handleLogin } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!apiEndpoint || !userName || !password) return;
-    const token = await handleLogin({
+    const accessObject = await handleLogin({
       apiEndpoint,
       userName,
       password,
     });
-    console.log(token);
-    if (token) navigate('/');
+    if (accessObject) navigate('/');
   };
 
   return (
@@ -62,7 +61,7 @@ const LoginPage = (): JSX.Element => {
         />
         <br />
         <br />
-        {tokenLoading ? <Loader /> : <input type="submit" value="Sign in" />}
+        {authLoading ? <Loader /> : <input type="submit" value="Sign in" />}
       </form>
     </>
   );
