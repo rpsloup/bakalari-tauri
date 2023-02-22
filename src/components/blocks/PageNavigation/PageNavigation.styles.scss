@@ -1,6 +1,6 @@
 .page-navigation {
   height: 100%;
-  background-color: #000;
+  border-right: 1px solid #dedede;
 
   .nav-items {
     display: flex;
@@ -13,16 +13,21 @@
     align-items: center;
     width: 5.4rem;
     height: 5.4rem;
-    background-color: #222;
-    color: #fff;
+    border-bottom: 1px solid #dedede;
+    color: #414141;
     transition: background-color 0.2s;
 
-    &.active {
-      border-left: 0.3rem solid #ae45d8;
+    &:hover {
+      background-color: #efefef;
     }
 
-    &:hover {
-      background-color: #333;
+    &.active {
+      background-color: #2296da;
+      color: #fafafa;
+    
+      &:hover {
+        background-color: #3ea9e7;
+      }
     }
   }
 }

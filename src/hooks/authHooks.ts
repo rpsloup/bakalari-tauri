@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 import type { UserAuth, TokenObject } from '../typings/authTypes';
 
-export const useAuth = (auth: UserAuth) => {
+export const useAuth = () => {
   const [token, setToken] = useState<TokenObject | null>(null);
 
-  const fetchToken = async (): Promise<TokenObject | null> => {
+  const fetchToken = async (auth: UserAuth): Promise<TokenObject | null> => {
     try {
       const res = await fetch(`${auth.apiEndpoint}/api/login`, {
         method: 'POST',
@@ -22,8 +22,8 @@ export const useAuth = (auth: UserAuth) => {
     }
   };
 
-  const handleLogin = async () => {
-    const token = await fetchToken();
+  const handleLogin = async (auth: UserAuth) => {
+    const token = await fetchToken(auth);
     setToken(token);
   };
 
