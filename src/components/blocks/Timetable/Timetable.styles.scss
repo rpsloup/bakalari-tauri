@@ -1,0 +1,30 @@
+.timetable {
+  td {
+    width: 7.2rem;
+    height: 7.2rem;
+    border: 1px solid #dedede;
+    text-align: center;
+  }
+
+  .hour-cell {
+    .hour-begin,
+    .hour-end {
+      font-size: 1rem;
+    }
+
+    .hour-caption {
+      margin: 0.4rem 0;
+    }
+  }
+
+  .subject-cell {
+    .subject-teacher,
+    .subject-room {
+      font-size: 1rem;
+    }
+
+    .subject-abbrev {
+      margin: 0.4rem 0;
+    }
+  }
+}

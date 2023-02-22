@@ -1,5 +1,7 @@
 import { TimetableResponse } from '../../../typings/apiTypes';
 
+import './Timetable.styles.scss';
+
 interface IProps {
   timetable: TimetableResponse;
 }
@@ -8,6 +10,16 @@ const WEEK_DAYS: string[] = ['Po', 'Út', 'St', 'Čt', 'Pá'];
 
 const Timetable = ({ timetable }: IProps): JSX.Element => (
   <table className="timetable">
+    <tr className="hour-row">
+      <td>&nbsp;</td>
+      {timetable.Hours.map((hour, hourIndex) => (
+        <td className="hour-cell" key={hourIndex}>
+          <p className="hour-begin">{hour.BeginTime}</p>
+          <p className="hour-caption">{hour.Caption}</p>
+          <p className="hour-end">{hour.EndTime}</p>
+        </td>
+      ))}
+    </tr>
     <tbody>
       {timetable.Days?.map((day, dayIndex) => (
         <tr className="day-row" key={dayIndex}>
