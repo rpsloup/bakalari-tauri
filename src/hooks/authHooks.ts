@@ -17,7 +17,8 @@ export const useAuth = () => {
         body: `client_id=ANDR&grant_type=password&username=${auth.userName}&password=${auth.password}`,
       });
       setAuthLoading(false);
-      const data = res.json();
+      const data = (await res.json()) as TokenObject;
+      if (!data.access_token) return null;
       return data;
     } catch (error) {
       console.log(error);
