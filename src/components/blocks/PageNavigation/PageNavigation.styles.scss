@@ -5,6 +5,20 @@
   .nav-items {
     display: flex;
     flex-direction: column;
+    height: 100%;
+
+    .nav-item {
+      &:not(:last-child) {
+        .item-box {
+          border-bottom: 1px solid #dedede;
+        }
+      }
+
+      &.spaced {
+        margin-top: auto;
+        border-top: 1px solid #dedede;
+      }
+    }
   }
 
   .item-box {
@@ -13,7 +27,6 @@
     align-items: center;
     width: 5.4rem;
     height: 5.4rem;
-    border-bottom: 1px solid #dedede;
     color: #414141;
     transition: background-color 0.2s;
 

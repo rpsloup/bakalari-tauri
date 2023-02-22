@@ -1,8 +1,28 @@
-import type { FormEvent } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../hooks/authHooks';
+
+import type { FormEvent, ChangeEvent } from 'react';
 
 const LoginPage = (): JSX.Element => {
-  const handleSubmit = (e: FormEvent) => {
+  const [apiEndpoint, setApiEndpoint] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const navigate = useNavigate();
+  const { handleLogin } = useAuth();
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!apiEndpoint || !userName || !password) return;
+    const token = await handleLogin({
+      apiEndpoint,
+      userName,
+      password,
+    });
+    console.log(token);
+    if (token) navigate('/');
   };
 
   return (
@@ -11,15 +31,33 @@ const LoginPage = (): JSX.Element => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="endpoint">Endpoint</label>
         <br />
-        <input type="text" name="endpoint" />
+        <input
+          type="text"
+          name="endpoint"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setApiEndpoint(e.target.value)
+          }
+        />
         <br />
         <label htmlFor="username">Username</label>
         <br />
-        <input type="text" name="username" />
+        <input
+          type="text"
+          name="username"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setUserName(e.target.value)
+          }
+        />
         <br />
         <label htmlFor="password">Password</label>
         <br />
-        <input type="password" name="password" />
+        <input
+          type="password"
+          name="password"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
+        />
         <br />
         <br />
         <input type="submit" value="Sign in" />

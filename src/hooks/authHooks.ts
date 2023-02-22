@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import type { UserAuth, TokenObject } from '../typings/authTypes';
 
@@ -22,13 +22,27 @@ export const useAuth = () => {
     }
   };
 
-  const handleLogin = async (auth: UserAuth) => {
+  const handleLogin = async (auth: UserAuth): Promise<TokenObject | null> => {
     const token = await fetchToken(auth);
+    if (!token) return null;
     setToken(token);
+    localStorage.setItem('token', JSON.stringify(token));
+    return token;
   };
+
+  const handleLogout = async () => {
+    setToken(null);
+    localStorage.removeItem('token');
+  };
+
+  useEffect(() => {
+    const localToken = localStorage.getItem('token');
+    if (localToken) setToken(JSON.parse(localToken));
+  }, []);
 
   return {
     token,
     handleLogin,
+    handleLogout,
   };
 };
