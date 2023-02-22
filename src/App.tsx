@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 
 import './styles/reset.scss';
 import './styles/main.scss';
+import './styles/animations.scss';
 
 const App = (): JSX.Element => (
   <Routes>
