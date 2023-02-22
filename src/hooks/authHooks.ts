@@ -4,8 +4,10 @@ import type { UserAuth, TokenObject } from '../typings/authTypes';
 
 export const useAuth = () => {
   const [token, setToken] = useState<TokenObject | null>(null);
+  const [tokenLoading, setTokenLoading] = useState<boolean>(false);
 
   const fetchToken = async (auth: UserAuth): Promise<TokenObject | null> => {
+    setTokenLoading(true);
     try {
       const res = await fetch(`${auth.apiEndpoint}/api/login`, {
         method: 'POST',
@@ -14,10 +16,12 @@ export const useAuth = () => {
         },
         body: `client_id=ANDR&grant_type=password&username=${auth.userName}&password=${auth.password}`,
       });
+      setTokenLoading(false);
       const data = res.json();
       return data;
     } catch (error) {
       console.log(error);
+      setTokenLoading(false);
       return null;
     }
   };
@@ -42,6 +46,7 @@ export const useAuth = () => {
 
   return {
     token,
+    tokenLoading,
     handleLogin,
     handleLogout,
   };
