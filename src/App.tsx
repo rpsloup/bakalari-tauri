@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import MarksPage from './pages/MarksPage';
 import TimetablePage from './pages/TimetablePage';
 import AbsencePage from './pages/AbsencePage';
+import PredictorPage from './pages/PredictorPage';
 import LoginPage from './pages/LoginPage';
 
 import './styles/reset.scss';
@@ -16,6 +17,7 @@ const App = (): JSX.Element => (
     <Route path="/marks" element={<MarksPage />} />
     <Route path="/timetable" element={<TimetablePage />} />
     <Route path="/absence" element={<AbsencePage />} />
+    <Route path="/predictor" element={<PredictorPage />} />
     <Route path="/login" element={<LoginPage />} />
   </Routes>
 );

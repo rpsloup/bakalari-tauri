@@ -46,7 +46,7 @@ const PageNavigation = (): JSX.Element => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/">
+          <Link to="/predictor">
             <div className="item-box">
               <Icon name="calculator" type="fas" />
               <span className="box-label">Předvídač</span>
